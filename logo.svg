@@ -1,0 +1,26 @@
+<svg width="420" height="140" viewBox="0 0 420 140" xmlns="http://www.w3.org/2000/svg">
+
+<style>
+.title{
+font: bold 48px Arial;
+fill:#D4AF37;
+}
+
+.subtitle{
+font: 18px Arial;
+fill:#999;
+letter-spacing:2px;
+}
+</style>
+
+<rect width="100%" height="100%" fill="black"/>
+
+<text x="50%" y="65" text-anchor="middle" class="title">
+GlowUp
+</text>
+
+<text x="50%" y="100" text-anchor="middle" class="subtitle">
+AUTO & POLSTER REINIGUNG
+</text>
+
+</svg>
