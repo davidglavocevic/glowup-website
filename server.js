@@ -4,8 +4,11 @@ const fs = require("fs")
 const app = express()
 
 app.use(express.static(__dirname))
+app.use(express.urlencoded({extended:true}))
 
 const data = JSON.parse(fs.readFileSync("data.json"))
+
+let bookings=[]
 
 app.get("/",(req,res)=>{
 
@@ -33,11 +36,11 @@ color:white;
 }
 
 header{
+height:80vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-height:80vh;
 background:black;
 text-align:center;
 }
@@ -48,8 +51,8 @@ margin-bottom:20px;
 }
 
 .subtitle{
-opacity:0.8;
 font-size:20px;
+opacity:0.8;
 }
 
 .btn{
@@ -58,8 +61,8 @@ padding:15px 30px;
 background:#D4AF37;
 border:none;
 border-radius:8px;
-font-weight:bold;
 cursor:pointer;
+font-weight:bold;
 }
 
 .section{
@@ -85,6 +88,30 @@ border:1px solid #333;
 color:#D4AF37;
 font-size:22px;
 margin-top:10px;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+}
+
+.gallery img{
+width:100%;
+border-radius:10px;
+}
+
+form{
+display:flex;
+flex-direction:column;
+gap:15px;
+max-width:400px;
+}
+
+input,select{
+padding:10px;
+border:none;
+border-radius:6px;
 }
 
 footer{
@@ -124,9 +151,7 @@ ${data.services.map(s=>`
 <div class="card">
 
 <h3>${s.name}</h3>
-
 <p>${s.desc}</p>
-
 <div class="price">${s.price}</div>
 
 </div>
@@ -139,13 +164,49 @@ ${data.services.map(s=>`
 
 <div class="section">
 
-<h2>Einsatzgebiet</h2>
+<h2>Vorher / Nachher</h2>
 
-<ul>
+<div class="gallery">
 
-${data.locations.map(l=>`<li>${l}</li>`).join("")}
+<img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023">
+<img src="https://images.unsplash.com/photo-1542365887-8f27d99a1f20">
+<img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9">
 
-</ul>
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>Termin buchen</h2>
+
+<form action="/book" method="post">
+
+<input name="name" placeholder="Name" required>
+
+<input name="phone" placeholder="Telefon">
+
+<select name="service">
+
+${data.services.map(s=>`<option>${s.name}</option>`).join("")}
+
+</select>
+
+<input type="date" name="date">
+
+<button class="btn">Termin senden</button>
+
+</form>
+
+</div>
+
+<div class="section">
+
+<h2>Standort</h2>
+
+<iframe width="100%" height="300"
+src="https://maps.google.com/maps?q=Wiesbaden&t=&z=13&ie=UTF8&iwloc=&output=embed">
+</iframe>
 
 </div>
 
@@ -162,10 +223,18 @@ ${data.company} • ${data.city}
 
 })
 
+app.post("/book",(req,res)=>{
+
+bookings.push(req.body)
+
+res.send("Termin Anfrage erhalten")
+
+})
+
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT,()=>{
 
-console.log("Server läuft auf Port "+PORT)
+console.log("Server läuft")
 
 })
