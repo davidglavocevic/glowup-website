@@ -1,27 +1,24 @@
 {
-  "company": "GlowUp",
-  "city": "Wiesbaden",
-  "phone": "49123456789",
+  "company":"GlowUp",
+  "city":"Wiesbaden",
+  "phone":"49123456789",
 
   "services":[
     {
       "name":"Innenraum Basic",
-      "desc":"Staubsaugen und einfache Reinigung",
+      "desc":"Staubsaugen und Reinigung",
       "price":"ab 60€"
     },
-
     {
       "name":"Innenraum Premium",
       "desc":"Tiefenreinigung mit Nass-Trockensauger",
       "price":"ab 90€"
     },
-
     {
       "name":"Leder & Kunststoff Pflege",
-      "desc":"Reinigung und Pflege von Leder und Kunststoff",
+      "desc":"Pflege für Leder und Kunststoff",
       "price":"ab 40€"
     },
-
     {
       "name":"Möbelreinigung",
       "desc":"Sofa und Polster Reinigung vor Ort",
