@@ -1,0 +1,41 @@
+{
+  "company": "GlowUp",
+  "city": "Wiesbaden",
+  "whatsapp": "49123456789",
+
+  "locations": [
+    "Wiesbaden",
+    "Mainz",
+    "Frankfurt",
+    "Rüsselsheim",
+    "Darmstadt"
+  ],
+
+  "services": [
+
+    {
+      "name": "Innenraumreinigung Basic",
+      "description": "Staubsaugen und Reinigung mit Nass- oder Trockensauger.",
+      "price": "ab 60€"
+    },
+
+    {
+      "name": "Innenraumreinigung Premium",
+      "description": "Tiefenreinigung mit Nasssauger inklusive Kunststoffpflege.",
+      "price": "ab 90€"
+    },
+
+    {
+      "name": "Innenraumreinigung Deluxe",
+      "description": "Tiefenreinigung + Lederpflege + Kunststoffpflege.",
+      "price": "ab 120€"
+    },
+
+    {
+      "name": "Möbelreinigung",
+      "description": "Sofa und Polster Reinigung vor Ort.",
+      "price": "ab 50€"
+    }
+
+  ]
+}
